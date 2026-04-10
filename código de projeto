@@ -1,31 +1,82 @@
+# DEFINIÇÃO DE NÍVEL ESCOLAR
+import time 
 
-def cadastro_aluno ():
-seila = int(input(Digite um número de 1 a 4: ))
-if seila == 1
-    return
-"""
-1 - Educação infantil
-2 - ensino fundamental I
-3 - ensino fundamental II
-4 - ensino médio
-"""
+def cadastro_aluno():
+    print('1 - Educação infantil')
+    time.sleep(0.5)
+    print('2 - Ensino fundamental I')
+    time.sleep(0.5)
+    print('3 - Ensino fundamental II')
+    time.sleep(0.5)
+    print('4 - Ensino médio')
+    time.sleep(0.5)
+    nivel_graduacao = int(input('Digite o número referente ao seu nível de graduação: '))
+    if nivel_graduacao == 1:
+        print('Entrando em educação infantil') 
+        time.sleep(0.5)
+        return educação_infantil
+    elif nivel_graduacao == 2:
+        print('Entrando em ensino fundamental_1')
+        time.sleep(0.5)
+        return ensino_fundamental_1
+    elif nivel_graduacao == 3:
+        print('Entrando em ensino fundamental 2')
+        time.sleep(0.5)
+        return ensino_fundamental_2
+    elif nivel_graduacao == 4:
+        print('Entrando em ensino medio')
+        time.sleep(0.5)
+        return ensino_medio
+cadastro_aluno()
 
-cadastro_aluno ()
+# INÍCIO DO CADASTRO DE DADOS PARA CADA NÍVEL ESCOLAR
+def educação_infantil():
+    pass
+educação_infantil()
+
+def ensino_fundamental_1():
+    pass
+ensino_fundamental_1()
+
+def ensino_fundamental_2():
+    pass
+ensino_fundamental_2()
+
+def ensino_medio():
+    pass
+ensino_medio()
 
 def aprovacao():
-nota_final = 4
-nota_minima = 5
-frequencia_final = 170
-frequencia_minima = 150
-
-if nota_final >= nota_minima and frequencia_final >= frequencia_minima:
-    print("APROVADO")
-elif frequencia_final < frequencia_minima:
-    print("REPROVADO POR FALTA")
-elif nota_final < nota_minima:
-    print("REPROVADO POR NOTA")
-elif nota_final < nota_minima and frequencia_final < frequencia_minima:
-    print("REPROVADO POR NOTA E FALTA")
+    nota_final = 3
+    nota_minima = 5
+    frequencia_final = 7
+    frequencia_minima = 5
+    if nota_final >= nota_minima and frequencia_final >= frequencia_minima:
+        print("APROVADO")
+    elif frequencia_final < frequencia_minima:
+        print("REPROVADO POR FALTA")
+    elif nota_final < nota_minima:
+        print("REPROVADO POR NOTA")
+    elif nota_final < nota_minima and frequencia_final < frequencia_minima:
+        print("REPROVADO POR NOTA E FALTA")
 aprovacao()
 
-def faltas()
+
+
+
+# TELA FINAL DE RESULTADOS
+def resultado_final1():
+    pass
+resultado_final1()
+
+def resultado_final2():
+    pass
+resultado_final2()
+
+def resultado_final3():
+    pass
+resultado_final3()
+
+def resultado_final4():
+    pass
+resultado_final4()
