@@ -1,3 +1,5 @@
+import time
+
 nome_aluno = input("Digite seu nome completo: ")
 
 print("Português")
@@ -65,11 +67,19 @@ calculo_filosofia = atividade_filosofia + prova_filosofia + presenca__filosofia
 
 
 print(f"Resultados finais de {nome_aluno}")
+time.sleep(0.3)
 print('Sua nota final em português é: {}' .format(calculo_portugues))
+time.sleep(0.3)
 print('Sua nota final em matemática é: {}' .format(calculo_matematica))
+time.sleep(0.3)
 print('Sua nota final em história é: {}' .format(calculo_historia))
+time.sleep(0.3)
 print('Sua nota final em geografia é: {}' .format(calculo_geografia))
+time.sleep(0.3)
 print('Sua nota final em biologia é: {}' .format(calculo_biologia))
+time.sleep(0.3)
 print('Sua nota final em biologia é: {}' .format(calculo_fisica))
+time.sleep(0.3)
 print('Sua nota final em química é: {}' .format(calculo_quimica))
+time.sleep(0.3)
 print('Sua nota final em filosofia é: {}' .format(calculo_filosofia))
