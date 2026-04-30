@@ -1,86 +1,82 @@
-import time
+print('╔═══════════════════════════════╗')
+print('║    SISTEMA MARIA CONCEIÇÃO    ║')
+print('╚═══════════════════════════════╝')
 
 
 nome_aluno = input("Digite seu nome completo: ")
+print('Bem-vendo {}! Vamos começar a cadastrar as suas notas, qual materia gostaria de cadastrar primeiro?' .format(nome_aluno))
 
 
 print("Digite abaixo as suas notas de português")
 atividade_portugues = float(input('Nota total de atividades: '))
 prova_portugues = float(input('Nota total de prova: '))
-presenca__portugues = float(input('Nota total de presença: '))
+trabalho_portugues = float(input('Nota total de presença: '))
 
-calculo_portugues = atividade_portugues + prova_portugues + presenca__portugues
+calculo_portugues = atividade_portugues + prova_portugues + trabalho_portugues
 
 
 print("Digite abaixo as suas notas de matemática")
 atividade_matematica = float(input('Nota total de atividades: '))
 prova_matematica = float(input('Nota total de prova: '))
-presenca__matematica = float(input('Nota total de presença: '))
+trabalho_matematica = float(input('Nota total de presença: '))
 
-calculo_matematica = atividade_matematica + prova_matematica + presenca__matematica
+calculo_matematica = atividade_matematica + prova_matematica + trabalho_matematica
 
 
 print("Digite abaixo as suas notas de história") 
 atividade_historia = float(input('Nota total de atividades: '))
 prova_historia = float(input('Nota total de prova: '))
-presenca__historia = float(input('Nota total de presença: '))
+trabalho_historia = float(input('Nota total de presença: '))
 
-calculo_historia = atividade_historia + prova_historia + presenca__historia
+calculo_historia = atividade_historia + prova_historia + trabalho_historia
 
 
 print("Digite abaixo as suas notas de geografia")
 atividade_geografia = float(input('Nota total de atividades: '))
 prova_geografia = float(input('Nota total de prova: '))
-presenca__geografia = float(input('Nota total de presença: '))
+trabalho_geografia = float(input('Nota total de presença: '))
 
-calculo_geografia = atividade_geografia + prova_geografia + presenca__geografia
+calculo_geografia = atividade_geografia + prova_geografia + trabalho_geografia
 
 
 print("Digite abaixo as suas notas de biologia")
 atividade_biologia = float(input('Nota total de atividades: '))
 prova_biologia = float(input('Nota total de prova: '))
-presenca__biologia = float(input('Nota total de presença: '))
+trabalho_biologia = float(input('Nota total de presença: '))
 
-calculo_biologia = atividade_biologia + prova_biologia + presenca__biologia
+calculo_biologia = atividade_biologia + prova_biologia + trabalho_biologia
 
 
 print("Digite abaixo as suas notas de física")
 atividade_fisica = float(input('Nota total de atividades: '))
 prova_fisica = float(input('Nota total de prova: '))
-presenca__fisica = float(input('Nota total de presença: '))
+trabalho_fisica = float(input('Nota total de presença: '))
 
-calculo_fisica = atividade_fisica + prova_fisica + presenca__fisica
+calculo_fisica = atividade_fisica + prova_fisica + trabalho_fisica
 
 
 print("Digite abaixo as suas notas de química") 
 atividade_quimica = float(input('Nota total de atividades: '))
 prova_quimica = float(input('Nota total de prova: '))
-presenca__quimica = float(input('Nota total de presença: '))
+trabalho_quimica = float(input('Nota total de presença: '))
 
-calculo_quimica = atividade_quimica + prova_quimica + presenca__quimica
+calculo_quimica = atividade_quimica + prova_quimica + trabalho_quimica
 
 
 print("Digite abaixo as suas notas de filosofia")
 atividade_filosofia = float(input('Nota total de atividades: '))
 prova_filosofia = float(input('Nota total de prova: '))
-presenca__filosofia = float(input('Nota total de presença: '))
-calculo_filosofia = atividade_filosofia + prova_filosofia + presenca__filosofia
+trabalho_filosofia = float(input('Nota total de presença: '))
+
+calculo_filosofia = atividade_filosofia + prova_filosofia + trabalho_filosofia
 
 
 print(f"Resultados finais de {nome_aluno}")
-time.sleep(0.3)
 print('Sua nota final em português é: {}' .format(calculo_portugues))
-time.sleep(0.3)
 print('Sua nota final em matemática é: {}' .format(calculo_matematica))
-time.sleep(0.3)
 print('Sua nota final em história é: {}' .format(calculo_historia))
-time.sleep(0.3)
 print('Sua nota final em geografia é: {}' .format(calculo_geografia))
-time.sleep(0.3)
 print('Sua nota final em biologia é: {}' .format(calculo_biologia))
-time.sleep(0.3)
 print('Sua nota final em fisica é: {}' .format(calculo_fisica))
-time.sleep(0.3)
 print('Sua nota final em química é: {}' .format(calculo_quimica))
-time.sleep(0.3)
 print('Sua nota final em filosofia é: {}' .format(calculo_filosofia))
