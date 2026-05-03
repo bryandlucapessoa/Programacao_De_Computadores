@@ -19,6 +19,16 @@ while not turma_aluno.strip():
     turma_aluno = input("Informe a sua turma: ")
     if not turma_aluno.strip():
         print("A sua turma não pode ficar em branco.")
+
+faltas_aluno = -1
+while faltas_aluno < 0:
+    try:
+        faltas_aluno = int(input("Informe o número de faltas: "))
+        if faltas_aluno < 0:
+            print("O número de faltas não pode ser negativo.")
+    except ValueError:
+        print("Digite um número inteiro válido.")
+        faltas_aluno = -1
         
 print(f"""
 Bem-vindo ao seu sistema de notas escolar, {nome_aluno}! 
@@ -35,48 +45,69 @@ def notas_alunos():
     for i, materia in enumerate(lista_materias):
         os.system(limpar)
         print(f"Matéria {i+1} de {len(lista_materias)}: {materia}\n")
-        notas_prova    = float(input("Digite a sua nota total de prova: "))
-        notas_teste    = float(input("Digite a sua nota total de teste: "))
-        notas_trabalho = float(input("Digite a sua nota total de trabalho: "))
-        
+        notas_prova    = float(input("Digite a sua nota total de prova (0-5): "))
+        notas_teste    = float(input("Digite a sua nota total de teste (0-4): "))
+        notas_trabalho = float(input("Digite a sua nota total de trabalho (0-1): "))
+
         notas[materia] = {"prova": notas_prova, "teste": notas_teste, "trabalho": notas_trabalho}
 
     return notas
-notas_alunos()
 
+notas = notas_alunos()
 
-# if 
-#     print(f'Infelizmente não foi desta vez, {nome_aluno}! você foi reprovado por falta de presença suficiente.')
-#     print('Aqui estão as suas notas')
-#     print('Sua nota final em português é: {}')
-#     print('Sua nota final em matemática é: {}')
-#     print('Sua nota final em história é: {}')
-#     print('Sua nota final em geografia é: {}')
-#     print('Sua nota final em biologia é: {}')
-#     print('Sua nota final em fisica é: {}')
-#     print('Sua nota final em química é: {}')
-#     print('Sua nota final em filosofia é: {}')
+def calcular_media(notas):
+    total = 0
+    for materia, valores in notas.items():
+        nota_materia = valores["prova"] + valores["teste"] + valores["trabalho"]
+        total += nota_materia
+    return total / len(notas)
 
-# elif 
-#     print(f'Infelizmente não foi desta vez, {nome_aluno}! você foi reprovado por falta de presença suficiente.')
-#     print('Aqui estão as suas notas')
-#     print('Sua nota final em português é: {}')
-#     print('Sua nota final em matemática é: {}')
-#     print('Sua nota final em história é: {}')
-#     print('Sua nota final em geografia é: {}')
-#     print('Sua nota final em biologia é: {}')
-#     print('Sua nota final em fisica é: {}')
-#     print('Sua nota final em química é: {}')
-#     print('Sua nota final em filosofia é: {}')
+def exibir_boletim(notas, nome_aluno, faltas_aluno):
+    limpar = "cls" if os.name == "nt" else "clear"
+    os.system(limpar)
 
-# elif 
-#     print(f'Infelizmente não foi desta vez, {nome_aluno}! você foi reprovado por falta de presença suficiente.')
-#     print('Aqui estão as suas notas')
-#     print('Sua nota final em português é: {}')
-#     print('Sua nota final em matemática é: {}')
-#     print('Sua nota final em história é: {}')
-#     print('Sua nota final em geografia é: {}')
-#     print('Sua nota final em biologia é: {}')
-#     print('Sua nota final em fisica é: {}')
-#     print('Sua nota final em química é: {}')
-#     print('Sua nota final em filosofia é: {}')
+    media_geral = calcular_media(notas)
+    reprovado_falta = faltas_aluno >= 200
+    reprovado_nota  = media_geral < 5.0
+
+    print('╔═══════════════════════════════════════╗')
+    print('║             BOLETIM FINAL             ║')
+    print('╚═══════════════════════════════════════╝')
+
+    print(f"\nAluno:  {nome_aluno}")
+    print(f"Turma:  {turma_aluno}")
+    print(f"Faltas: {faltas_aluno}")
+
+    print("\n-----------------------------------------\n")
+
+    nomes_formatados = {
+        "PORTUGUÊS": "Português",
+        "MATEMÁTICA": "Matemática",
+        "HISTÓRIA":  "História",
+        "GEOGRAFIA": "Geografia",
+        "BIOLOGIA":  "Biologia",
+        "FÍSICA":    "Física",
+        "QUÍMICA":   "Química",
+        "FILOSOFIA": "Filosofia",
+    }
+
+    for materia, valores in notas.items():
+        nota_final = valores["prova"] + valores["teste"] + valores["trabalho"]
+        nome = nomes_formatados[materia]
+        print(f"  Sua nota final em {nome:<12} é: {nota_final:.1f}")
+
+    print(f"\n  Média geral: {media_geral:.1f}")
+    print()
+
+    if reprovado_falta:
+        print(f'Infelizmente não foi desta vez, {nome_aluno}!')
+        print(f'Você foi reprovado por excesso de faltas ({faltas_aluno} faltas).')
+        if reprovado_nota:
+            print(f'Além disso, sua média geral de {media_geral:.1f} também ficou abaixo do mínimo (5.0).')
+    elif reprovado_nota:
+        print(f'Infelizmente não foi desta vez, {nome_aluno}!')
+        print(f'Você foi reprovado por nota — sua média geral foi {media_geral:.1f} (mínimo: 5.0).')
+    else:
+        print(f'Parabéns, {nome_aluno}! Você foi aprovado com média geral {media_geral:.1f}!')
+
+exibir_boletim(notas, nome_aluno, faltas_aluno)
