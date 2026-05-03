@@ -20,26 +20,28 @@ while not turma_aluno.strip():
     if not turma_aluno.strip():
         print("A sua turma não pode ficar em branco.")
         
-    print(f"""
+print(f"""
 Bem-vindo ao seu sistema de notas escolar, {nome_aluno}! 
 A seguir, digite as suas notas em cada materia disponível.'
 """)
 
 
-def NotasAlunos():
-    os.system("clear")
-    materias = ["PORTUGUÊS", "MATEMÁTICA", "HISTÓRIA", "GEOGRAFIA", "BIOLOGIA", "FÍSICA", "QUÍMICA", "FILOSOFIA"]
+def notas_alunos():
+    lista_materias = ["PORTUGUÊS", "MATEMÁTICA", "HISTÓRIA", "GEOGRAFIA", 
+                      "BIOLOGIA", "FÍSICA", "QUÍMICA", "FILOSOFIA"]
     notas = {}
-    for materias in materias:
-        #sys.stdout.write("\033[4F]")
-        print(f"\n{materias}")
-        notas_prova = float(input("Digite a sua nota total de prova: "))
-        notas_teste = float(input("Digite a sua nota total de teste: "))
-        notas_trabalho = float(input("Digite a sua nota total de trabalho: "))
-        os.system("clear")
+    limpar = "cls" if os.name == "nt" else "clear"
 
-        notas[materias] = notas_prova, notas_teste, notas_trabalho
-NotasAlunos()
+    for i, materia in enumerate(lista_materias):
+        os.system(limpar)
+        print(f"Matéria {i+1} de {len(lista_materias)}: {materia}\n")
+        notas_prova    = float(input("Digite a sua nota total de prova: "))
+        notas_teste    = float(input("Digite a sua nota total de teste: "))
+        notas_trabalho = float(input("Digite a sua nota total de trabalho: "))
+        notas[materia] = {"prova": notas_prova, "teste": notas_teste, "trabalho": notas_trabalho}
+
+    return notas
+notas_alunos()
 
 
 # if 
