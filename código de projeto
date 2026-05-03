@@ -38,6 +38,7 @@ def notas_alunos():
         notas_prova    = float(input("Digite a sua nota total de prova: "))
         notas_teste    = float(input("Digite a sua nota total de teste: "))
         notas_trabalho = float(input("Digite a sua nota total de trabalho: "))
+        
         notas[materia] = {"prova": notas_prova, "teste": notas_teste, "trabalho": notas_trabalho}
 
     return notas
